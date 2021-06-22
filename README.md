@@ -1,4 +1,4 @@
-# ![React & React Native Monorepo](/banner.png)
+## React & React Native Monorepo
 
 This is an monorepo for React and React Native which can be used as boilerplate. It comes with out-of-box configurations for
 - Web:
@@ -20,17 +20,7 @@ This is an monorepo for React and React Native which can be used as boilerplate.
     - [husky] and [lint-staged]: Beautify code (staged) before every commit.
     - Absolute imports for react and react-native.
 
-## There is an Advanced branch
-It has preconfigured native Google SignIn, Push Notifications for all platforms (iOS, Android, Web). Also have redux persist for saving redux state of application so that user can start where they left.  See its guide [here](https://github.com/Faisal-Manzer/react-and-react-native-monorepo/tree/advanced#react-n-react-native-monorepo-advanced).
-```shell script
-git clone https://github.com/Faisal-Manzer/react-and-react-native-monorepo.git --branch advanced --single-branch
-```
-
 ## Getting started
-```shell script
-# clone this repo
-git clone https://github.com/Faisal-Manzer/react-and-react-native-monorepo.git
-```
 
 `yarn install`: For installing dependencies run.  
 `yarn pods`: If you have [xcode] and [Cocapods] installed (needed for iOS development) run to install iOS dependencies.  
@@ -47,9 +37,6 @@ git clone https://github.com/Faisal-Manzer/react-and-react-native-monorepo.git
 `yarn xcode`: Will open android project in android studio.  
 
 ```shell script
-# clone the repo
-git clone https://github.com/Faisal-Manzer/react-and-react-native-monorepo.git app
-cd app
 
 # install dependencies
 yarn install
@@ -78,45 +65,8 @@ yarn pod
 
 ## Guides
 
-### My app is stuck on splash screen
-Your app is opening but it stuck because it is loading js bundel. Once its will load the app will start.
-
 ### Sharing code
 All shared code should reside in `common` folder. Containers, hooks, actions, helper logic all can reside under `common` **except UI**.
-```js
-// common/helpers.js
-
-export const myLogic = (someArgs) => {
-   // some code
-}
-```
-
-Now in web or native file you can
-```js
-import { myLogic } from 'common/helpers'
-```
-
-Now for importing it you can using 
-
-### Absolute imports
-
-#### Code sharing
-You can use import from `common` with it's name, i.e.:
-```js
-import {} from 'common/component/HelloMonorepo';
-```
-
-#### React
-React comes out of the box imports for all subdirectories of `src`.
-```js
-import {} from 'components/MonorepoIntroduction';
-```
-
-#### React Native
-For RN absolute import you can use directly for all subdirectories of `src`.
-```js
-import {} from 'components/MonorepoIntroduction';
-```
 
 ### Adding external dependencies
 1. If there is any dependency which is isolated to web or native then there will be no issues with it. If issue comes try adding dependency to `nohoist` in respective `package.json` and then clean install `yarn clean && yarn install && yarn pods`.
@@ -128,7 +78,7 @@ Open `web/config-overrides.js` add alias for the dependency. Alias is resolving 
 See example of `react-redux`.
 
 ##### For native
-Open `native/config-overrides.js` add alias for the dependency as `extraNodeModules`. If dependency is in `nohoist` then it will be in `web/node_modules` or else in root level `node_modules`.  
+Open `native/metro.config.js` add alias for the dependency as `extraNodeModules`. If dependency is in `nohoist` then it will be in `web/node_modules` or else in root level `node_modules`.  
 See example of `react-redux`. Recommended to add that dependency to `nohoist`.
 
 ### Changing app icon
