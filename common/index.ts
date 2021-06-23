@@ -1,2 +1,2 @@
-export * from "./reducers/index";
-export * from "./actions/index";
+export * from "./src/reducers/index";
+export * from "./src/actions/index";
