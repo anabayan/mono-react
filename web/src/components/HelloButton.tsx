@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { demoButtonClicked } from "common/actions/demo";
+import { demoButtonClicked } from "common";
 
 export const HelloButton = () => {
   const count = useSelector((state) => (state as any).demo.count);
@@ -9,7 +9,7 @@ export const HelloButton = () => {
 
   return (
     <div>
-      <h3>Hello, Redux</h3>
+      <h3>Counter</h3>
       Count: {count}{" "}
       <button type="button" onClick={() => dispatch(demoButtonClicked())}>
         Click to increase count.
